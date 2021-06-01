@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Book;
+
+<main>
+<h2>Book Details</h2>
+<hr />
+<h3>@Html.DisplayBookTitleFor(model => model.BookTitle): @Html.DisplayFor(model => model.BookTitle)</h3>
+
+@if(@Model.JoinBookPatron.Count == 0)
+{
+  <p>This book info has not been submitted yet.</p>
+}
+else
+{
+  <h4>Written by:</h4>
+  <ul>
+  @foreach(var join in Model.JoinBookPatron)
+  {
+    <li>@join.Author.AuthorName</li>
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to books", "Index")</p>
+<p>@Html.ActionLink("Edit Book", "Edit", new { id = Model.BookId })</p>
+<p>@Html.ActionLink("Delete Book", "Delete", new { id = Model.BookId })</p>
+</main>

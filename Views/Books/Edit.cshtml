@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Library.Models.Book
+
+<main>
+<h2>Edit</h2>
+
+<h4>Edit this book: @Html.DisplayFor(model => model.BookTitle)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.BookId)
+
+  @Html.LabelFor(model => model.BookTitle)
+  @Html.EditorFor(model => model.BookTitle)
+
+  <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to list", "Index")</p>
+</main>
