@@ -11,6 +11,6 @@ namespace Library.Models
     public int PatronId { get; set; }
     public string PatronName { get; set; }
     public virtual ICollection<Checkout> JoinBookPatron { get; set; }
-
+    public virtual ApplicationUser User { get; set; }
   }
 }

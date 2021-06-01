@@ -27,13 +27,13 @@ namespace Library.Controllers
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
-      var userPatrons = _db.Patrons.Where(entry => entry.User.Id == currentUser.Id).ToList();
+      var userPatrons = _db.Patron.Where(entry => entry.User.Id == currentUser.Id).ToList();
       return View(userPatrons);
     }
 
     public ActionResult Create()
     {
-      ViewBag.BookId = new SelectList(_db.Books, "BookId", "Name");
+      ViewBag.BookId = new SelectList(_db.Book, "BookId", "Name");
       return View();
     }
 
@@ -43,7 +43,7 @@ namespace Library.Controllers
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
       var currentUser = await _userManager.FindByIdAsync(userId);
       patron.User = currentUser;
-      _db.Patrons.Add(patron);
+      _db.Patron.Add(patron);
       _db.SaveChanges();
       if (BookId != 0)
       {
@@ -55,7 +55,7 @@ namespace Library.Controllers
 
     public ActionResult Details(int id)
     {
-      var thisPatron = _db.Patrons
+      var thisPatron = _db.Patron
           .Include(patron => patron.JoinBookPatron)
           .ThenInclude(join => join.Book)
           .FirstOrDefault(patron => patron.PatronId == id);
@@ -64,8 +64,8 @@ namespace Library.Controllers
 
     public ActionResult Edit(int id)
     {
-      var thisPatron = _db.Patrons.FirstOrDefault(patron => patron.PatronId == id);
-      ViewBag.BookId = new SelectList(_db.Books, "BookId", "Name");
+      var thisPatron = _db.Patron.FirstOrDefault(patron => patron.PatronId == id);
+      ViewBag.BookId = new SelectList(_db.Book, "BookId", "Name");
       return View(thisPatron);
     }
 
@@ -83,8 +83,8 @@ namespace Library.Controllers
 
     public ActionResult AddBook(int id)
     {
-      var thisPatron = _db.Patrons.FirstOrDefault(patron => patron.PatronId == id);
-      ViewBag.BookId = new SelectList(_db.Books, "BookId", "Name");
+      var thisPatron = _db.Patron.FirstOrDefault(patron => patron.PatronId == id);
+      ViewBag.BookId = new SelectList(_db.Book, "BookId", "Name");
       return View(thisPatron);
     }
 
@@ -101,15 +101,15 @@ namespace Library.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisPatron = _db.Patrons.FirstOrDefault(patron => patron.PatronId == id);
+      var thisPatron = _db.Patron.FirstOrDefault(patron => patron.PatronId == id);
       return View(thisPatron);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisPatron = _db.Patrons.FirstOrDefault(patron => patron.PatronId == id);
-      _db.Patrons.Remove(thisPatron);
+      var thisPatron = _db.Patron.FirstOrDefault(patron => patron.PatronId == id);
+      _db.Patron.Remove(thisPatron);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }

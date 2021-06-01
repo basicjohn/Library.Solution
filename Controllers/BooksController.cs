@@ -17,7 +17,7 @@ namespace Library.Controllers
 
     public ActionResult Index()
     {
-      List<Book> model = _db.Books.ToList();
+      List<Book> model = _db.Book.ToList();
       return View(model);
     }
 
@@ -29,14 +29,14 @@ namespace Library.Controllers
     [HttpPost]
     public ActionResult Create(Book book)
     {
-      _db.Books.Add(book);
+      _db.Book.Add(book);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Details(int id)
     {
-      var thisBook = _db.Books
+      var thisBook = _db.Book
           .Include(book => book.JoinAuthorBook)
           .ThenInclude(join => join.Author)
           .FirstOrDefault(book => book.BookId == id);
@@ -44,7 +44,7 @@ namespace Library.Controllers
     }
     public ActionResult Edit(int id)
     {
-      var thisBook = _db.Books.FirstOrDefault(book => book.BookId == id);
+      var thisBook = _db.Book.FirstOrDefault(book => book.BookId == id);
       return View(thisBook);
     }
 
@@ -58,15 +58,15 @@ namespace Library.Controllers
 
     public ActionResult Delete(int id)
     {
-      var thisBook = _db.Books.FirstOrDefault(book => book.BookId == id);
+      var thisBook = _db.Book.FirstOrDefault(book => book.BookId == id);
       return View(thisBook);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisBook = _db.Books.FirstOrDefault(book => book.BookId == id);
-      _db.Books.Remove(thisBook);
+      var thisBook = _db.Book.FirstOrDefault(book => book.BookId == id);
+      _db.Book.Remove(thisBook);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
