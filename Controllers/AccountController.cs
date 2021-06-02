@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Library.Models;
 using System.Threading.Tasks;
 using Library.ViewModels;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Collections.Generic;
+
 
 namespace Library.Controllers
 {
@@ -21,6 +25,10 @@ namespace Library.Controllers
 
     public ActionResult Index()
     {
+      // var thisPatron = _db.Patron
+      //    .Include(patron => patron.JoinBookPatron)
+      //    .ThenInclude(join => join.Book)
+      //    .FirstOrDefault(patron => patron.PatronId == id);
       return View();
     }
 
