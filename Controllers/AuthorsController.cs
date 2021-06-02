@@ -33,7 +33,7 @@ namespace Library.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.BookId = new SelectList(_db.Book, "BookId", "Name");
+      ViewBag.BookId = new SelectList(_db.Book, "BookId", "BookTitle");
       return View();
     }
 
@@ -65,17 +65,12 @@ namespace Library.Controllers
     public ActionResult Edit(int id)
     {
       var thisAuthor = _db.Author.FirstOrDefault(author => author.AuthorId == id);
-      ViewBag.BookId = new SelectList(_db.Book, "BookId", "Name");
       return View(thisAuthor);
     }
 
     [HttpPost]
-    public ActionResult Edit(Author author, int BookId)
+    public ActionResult Edit(Author author)
     {
-      if (BookId != 0)
-      {
-        _db.AuthorBook.Add(new AuthorBook() { BookId = BookId, AuthorId = author.AuthorId });
-      }
       _db.Entry(author).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
@@ -84,7 +79,7 @@ namespace Library.Controllers
     public ActionResult AddBook(int id)
     {
       var thisAuthor = _db.Author.FirstOrDefault(author => author.AuthorId == id);
-      ViewBag.BookId = new SelectList(_db.Book, "BookId", "Name");
+      ViewBag.BookId = new SelectList(_db.Book, "BookId", "BookTitle");
       return View(thisAuthor);
     }
 

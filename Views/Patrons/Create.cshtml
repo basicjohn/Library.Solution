@@ -8,11 +8,7 @@
 
   @using (Html.BeginForm())
   {
-    @Html.LabelFor(model => model.PatronName)
-    @Html.TextBoxFor(model => model.PatronName)
-
-    @Html.Label("Select Book")
-    @Html.DropDownList("BookId")
+    @Html.TextBoxFor(model => model.PatronName, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.PatronName), required="required"})
 
     <input type="submit" value="Add new Patron" class="btn btn-default" />
   }

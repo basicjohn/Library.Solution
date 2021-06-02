@@ -11,9 +11,6 @@
     @Html.LabelFor(model => model.AuthorName)
     @Html.TextBoxFor(model => model.AuthorName)
 
-    @Html.Label("Select Book")
-    @Html.DropDownList("BookId")
-
     <input type="submit" value="Add new Author" class="btn btn-default" />
   }
   <p>@Html.ActionLink("Show all Authors", "Index")</p>
