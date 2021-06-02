@@ -3,7 +3,6 @@
 }
 
 @model Library.Models.Author
-<main>
   <h4>Add a new Author</h4>
 
   @using (Html.BeginForm())
@@ -14,4 +13,3 @@
     <input type="submit" value="Add new Author" class="btn btn-default" />
   }
   <p>@Html.ActionLink("Show all Authors", "Index")</p>
-</main>

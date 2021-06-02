@@ -1,6 +1,12 @@
 /* Header Styles */
+header {
+  background-color: rgb(214, 214, 214);
+  width: 100%;
+}
+
 .page-title {
   display: inline;
+  line-height: 70px;
 }
 
 .nav {
@@ -9,9 +15,21 @@
   min-width: 50%;
   max-width: 70%;
 }
-.nav-link {
+.nav-item {
   display: block;
   float: left;
+  height: 70px;
+}
+
+.nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: 70px;
+}
+
+/* Main Styles */
+main {
+  padding-top: 25px;
 }
 
 /* Footer Styles */

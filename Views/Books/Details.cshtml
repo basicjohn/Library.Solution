@@ -4,7 +4,6 @@
 
 @model Library.Models.Book;
 
-<main>
 <h2>Book Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.BookTitle): @Html.DisplayFor(model => model.BookTitle)</h3>
@@ -28,4 +27,3 @@ else
 <p>@Html.ActionLink("Back to books", "Index")</p>
 <p>@Html.ActionLink("Edit Book", "Edit", new { id = Model.BookId })</p>
 <p>@Html.ActionLink("Delete Book", "Delete", new { id = Model.BookId })</p>
-</main>

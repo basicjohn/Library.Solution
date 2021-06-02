@@ -3,7 +3,6 @@
 }
 
 @model Library.Models.Patron
-<main>
   <h4>Add a new Patron</h4>
 
   @using (Html.BeginForm())
@@ -13,4 +12,3 @@
     <input type="submit" value="Add new Patron" class="btn btn-default" />
   }
   <p>@Html.ActionLink("Show all Patrons", "Index")</p>
-</main>
