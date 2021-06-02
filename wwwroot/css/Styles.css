@@ -1,4 +1,21 @@
-div#footer {
+/* Header Styles */
+.page-title {
+  display: inline;
+}
+
+.nav {
+  list-style-type: none;
+  float: right;
+  min-width: 50%;
+  max-width: 70%;
+}
+.nav-link {
+  display: block;
+  float: left;
+}
+
+/* Footer Styles */
+footer {
   position: fixed;
   bottom: 0px;
   left: 0px;

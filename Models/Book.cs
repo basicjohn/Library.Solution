@@ -29,7 +29,7 @@ namespace Library.Models
     public string Synopsis { get; set; }
 
     [Display(Name = "Publication Date")]
-    public DateTime DatePublished { get; set; }
+    public DateTime DatePublished { get; set; } = DateTime.Today;
 
     [Display(Name = "Book Availability")]
     public int BookStock { get; set; }

@@ -2,19 +2,19 @@
   Layout = "_Layout";
 }
 
-@model Library.Models.Author
+@model Library.Models.Patron
 <main>
-  <h4>Add a new Author</h4>
+  <h4>Add a new Patron</h4>
 
   @using (Html.BeginForm())
   {
-    @Html.LabelFor(model => model.AuthorName)
-    @Html.TextBoxFor(model => model.AuthorName)
+    @Html.LabelFor(model => model.PatronName)
+    @Html.TextBoxFor(model => model.PatronName)
 
     @Html.Label("Select Book")
     @Html.DropDownList("BookId")
 
-    <input type="submit" value="Add new Author" class="btn btn-default" />
+    <input type="submit" value="Add new Patron" class="btn btn-default" />
   }
-  <p>@Html.ActionLink("Show all Authors", "Index")</p>
+  <p>@Html.ActionLink("Show all Patrons", "Index")</p>
 </main>

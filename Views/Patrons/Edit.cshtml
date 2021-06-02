@@ -2,19 +2,19 @@
   Layout = "_Layout";
 }
 
-@model Library.Models.Author
+@model Library.Models.Patron
 <main>
 
 <h2>Edit</h2>
 
-<h4>Edit this task: @Html.DisplayFor(model => model.AuthorName)</h4>
+<h4>Edit this patron: @Html.DisplayFor(model => model.PatronName)</h4>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.AuthorId)
+  @Html.HiddenFor(model => model.PatronId)
 
-  @Html.LabelFor(model => model.AuthorName)
-  @Html.EditorFor(model => model.AuthorName)
+  @Html.LabelFor(model => model.PatronName)
+  @Html.EditorFor(model => model.PatronName)
 
   @Html.Label("Select book")
   @Html.DropDownList("BookId")
