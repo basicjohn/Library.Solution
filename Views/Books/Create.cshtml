@@ -16,7 +16,7 @@
   @Html.TextBoxFor(model => model.SubCategory, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.SubCategory), required="required"})
   @Html.TextBoxFor(model => model.BookTitle, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.BookTitle), required="required"})
   @Html.TextBoxFor(model => model.Tagline, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.Tagline), required="required"})
-  @Html.TextBoxFor(model => model.Synopsis, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.Synopsis), required="required"})
+  @Html.TextAreaFor(model => model.Synopsis, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.Synopsis), required="required"})
   @Html.TextBoxFor(model => model.DatePublished, new { onfocus="(this.type='date')" , @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.DatePublished), required="required", max = @Html.DisplayFor(m=>m.DatePublished) })
   
   @Html.TextBoxFor(model => model.BookStock, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.BookStock), required="required"})

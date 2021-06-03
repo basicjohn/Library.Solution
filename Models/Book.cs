@@ -14,7 +14,7 @@ namespace Library.Models
     public int BookId { get; set; }
     // Fiction or non-Fiction
     [Display(Name = "Category")]
-    public bool Category { get; set; }
+    public string Category { get; set; }
     // Types of Fiction or non-Fiction
     [Display(Name = "Category Type")]
     public string SubCategory { get; set; }
@@ -32,7 +32,7 @@ namespace Library.Models
     public DateTime DatePublished { get; set; } = DateTime.Today;
 
     [Display(Name = "Book Availability")]
-    public int BookStock { get; set; }
+    public int BookStock { get; set; } = 1;
     public virtual ApplicationUser User { get; set; }
     public virtual ICollection<AuthorBook> JoinAuthorBook { get; }
     public virtual ICollection<Checkout> JoinBookPatron { get; }
