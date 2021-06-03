@@ -1,14 +1,17 @@
-@{
-  Layout = "_Layout";
-}
+<div class="offset-md-3 col-md-6">
 
-@model Library.Models.Patron
+  @{
+    Layout = "_Layout";
+  }
+
+  @model Library.Models.Patron
   <h4>Add a new Patron</h4>
 
   @using (Html.BeginForm())
   {
-    @Html.TextBoxFor(model => model.PatronName, new { @class = "form-control", placeholder = @Html.DisplayNameFor(m=>m.PatronName), required="required"})
+    @Html.TextBoxFor(model => model.PatronName, new { @class = "form-control", placeholder =
+  @Html.DisplayNameFor(m=>m.PatronName), required="required"})
 
-    <input type="submit" value="Add new Patron" class="btn btn-default" />
+    <input type="submit" value="Create" class="btn btn-primary" />
   }
   <p>@Html.ActionLink("Show all Patrons", "Index")</p>
